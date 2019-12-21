@@ -26,8 +26,9 @@ pipeline {
 	       
 	          sshagent(['centos']) 
 	          {
+		     sh """
                         scp  -o StrictHostKeyChecking=no   target/myweb.war
-
+                     """
                   }
 
 	       
