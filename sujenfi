@@ -1,0 +1,23 @@
+
+pipeline {
+
+ agent any
+   stages {
+       stage("welcome")
+       {
+	     steps
+	         {
+                 git credentialsId: 'github', url: 'https://github.com/subhpanda/myweb.git'
+		 }
+	} 
+	stage("welcome1")
+        {
+	      steps
+	       {
+                   sh 'mvn clean package'
+               }
+	} 
+   
+   }
+
+}
