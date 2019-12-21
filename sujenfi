@@ -20,7 +20,8 @@ pipeline {
 	} 
 	stage("test")
         {
-	      
+	      steps
+	      {
                    sshagent(['centos']) 
 		        {
                           sh """
@@ -31,7 +32,7 @@ pipeline {
 			  
 			  """
                         }
-               
+               }
 	}
    
    }
