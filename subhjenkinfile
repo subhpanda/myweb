@@ -5,17 +5,18 @@ pipeline {
    stages {
        stage("welcome")
        {
-	     steps{
+	     steps
+	         {
                  git credentialsId: 'github', url: 'https://github.com/subhpanda/myweb.git'
-
-	          }
-	   } 
-	   stage("welcome1")
-       {
-	     steps{
+		 }
+	} 
+	stage("welcome1")
+        {
+	      steps
+	       {
                    sh 'mvn clean package'
                }
-	   } 
+	} 
    
    }
 
