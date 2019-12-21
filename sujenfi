@@ -20,19 +20,7 @@ pipeline {
 	} 
 	stage("test")
         {
-	      steps
-	      {
-                   sshagent(['centos']) 
-		        {
-                          sh """
-			  
-			  scp  -o StrictHostKeyChecking=no target/myweb.war
-			  
-			  
-			  
-			  """
-                        }
-               }
+	echo "subham"
 	}
    
    }
