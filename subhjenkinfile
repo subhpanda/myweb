@@ -3,20 +3,50 @@ pipeline {
 
  agent any
    stages {
-       stage("welcome")
+       stage("git")
        {
 	     steps
 	         {
                  git credentialsId: 'github', url: 'https://github.com/subhpanda/myweb.git'
 		 }
 	} 
-	stage("welcome1")
+	stage("maven")
         {
 	      steps
 	       {
                    sh 'mvn clean package'
+		   sh "mv target/*.war  target/myweb.war "
                }
 	} 
+	
+	
+	stage("centos")
+        {
+	     
+	       
+	          sshagent(['centos']) 
+	          {
+		     sh """
+                        scp  -o StrictHostKeyChecking=no   target/myweb.war    centos@ip-172-31-25-123:/opt/tomcat8/webapps/
+                      
+		        ssh  centos@ip-172-31-25-123   /opt/tomcat8/bin/shutdown.sh
+			ssh  centos@ip-172-31-25-123   /opt/tomcat8/bin/startup.sh
+		     
+		     
+		     """
+		     
+		     
+		     
+		     
+		     
+                  }
+
+	       
+	       
+               
+	} 
+	
+
    
    }
 
