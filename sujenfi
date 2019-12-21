@@ -18,6 +18,16 @@ pipeline {
 		   sh "mv target/*.war  target/myweb.war "
                }
 	} 
+	
+	
+	stage("maven")
+        {
+	      steps
+	       {
+                   echo "subham is a good a boy"
+               }
+	} 
+	
 
    
    }
