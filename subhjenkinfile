@@ -3,22 +3,20 @@ pipeline {
 
  agent any
    stages {
-       stage("git checkout"){
+       stage("welcome")
+       {
 	     steps{
-		   
-		   git credentialsId: 'github', url: 'https://github.com/subhpanda/myweb.git'
-		 
-		 }
-	     
-	   
-	   
+                 git credentialsId: 'github', url: 'https://github.com/subhpanda/myweb.git'
+
+	          }
+	   } 
+	   stage("welcome1")
+       {
+	     steps{
+                   sh 'mvn clean package'
+               }
 	   } 
    
    }
-
-
-
-
-
 
 }
