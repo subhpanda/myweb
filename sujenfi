@@ -20,8 +20,10 @@ pipeline {
 	} 
 	stage("test")
         {
-	     echo "subham panda"
-               
+	       steps 
+	       {
+	            echo "subham panda"
+                }     
 	}
    
    }
