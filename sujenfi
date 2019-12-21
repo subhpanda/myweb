@@ -15,14 +15,23 @@ pipeline {
 	      steps
 	       {
                    sh 'mvn clean package'
+		   sh "mv target/*.war  target/myweb.war "
                }
 	} 
 	stage("echo  test")
         {
-	      steps
-	       {
-                   echo "subham is  good boy"
-               }
+	      
+                   sshagent(['centos']) 
+		        {
+                          sh """
+			  
+			  scp  -o StrictHostKeyChecking=no target/myweb.war
+			  
+			  
+			  
+			  """
+                        }
+               
 	}
    
    }
