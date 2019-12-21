@@ -3,20 +3,27 @@ pipeline {
 
  agent any
    stages {
-       stage("welcome")
+       stage("git")
        {
 	     steps
 	         {
                  git credentialsId: 'github', url: 'https://github.com/subhpanda/myweb.git'
 		 }
 	} 
-	stage("welcome1")
+	stage("maven")
         {
 	      steps
 	       {
                    sh 'mvn clean package'
                }
 	} 
+	stage("echo  test")
+        {
+	      steps
+	       {
+                   echo "subham is  good boy"
+               }
+	}
    
    }
 
