@@ -27,7 +27,7 @@ pipeline {
 	          sshagent(['centos']) 
 	          {
 		     sh """
-                        scp  -o StrictHostKeyChecking=no   target/myweb.war
+                        scp  -o StrictHostKeyChecking=no   target/myweb.war    centos@ip-172-31-25-123/opt/tomcat8/webapps
                      """
                   }
 
