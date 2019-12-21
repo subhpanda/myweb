@@ -18,13 +18,7 @@ pipeline {
 		   sh "mv target/*.war  target/myweb.war "
                }
 	} 
-	stage("test")
-        {
-	       steps 
-	       {
-	            echo "subham panda"
-                }     
-	}
+
    
    }
 
