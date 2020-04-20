@@ -20,34 +20,7 @@ pipeline {
 	} 
 	
 	
-	stage("centos")
-        {
-	     
-	       
-	          sshagent(['centos']) 
-	          {
-		     sh """
-                        scp  -o StrictHostKeyChecking=no   target/myweb.war    centos@ip-172-31-25-123:/opt/tomcat8/webapps/
-                      
-		        ssh  centos@ip-172-31-25-123   /opt/tomcat8/bin/shutdown.sh
-			ssh  centos@ip-172-31-25-123   /opt/tomcat8/bin/startup.sh
-		     
-		     
-		     """
-		     
-		     
-		     
-		     
-		     
-                  }
-
-	       
-	       
-               
-	} 
 	
-
-   
-   }
+  }
 
 }
