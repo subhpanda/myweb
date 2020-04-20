@@ -3,13 +3,6 @@ pipeline {
 
  agent any
  
- environment {
-  PATH ="/opt/maven3/bin:$PATH"
- 
- }
- 
- 
- 
    stages {
        stage("git")
        {
@@ -23,10 +16,11 @@ pipeline {
 	      steps
 	       {
                    sh 'mvn clean package'
-		  
+		   
                }
 	} 
 	
    }
 
 }
+	
